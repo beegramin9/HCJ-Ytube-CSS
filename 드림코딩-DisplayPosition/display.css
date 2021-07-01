@@ -1,0 +1,20 @@
+div,
+span {
+  width: 80px;
+  height: 80px;
+  margin: 20px;
+}
+
+div {
+  background-color: red;
+  /* inline만 있으면 해당 클래스의 width, height는 개무시하고
+  안에 텍스트, 이미지 크기만큼 크기가 변한다
+  즉 안에 아무런 이미지, 텍스트가 없으면 아예 안 나타남 */
+  display: inline-block;
+}
+span {
+  background-color: blue;
+  /* block 한줄에 하나씩
+  inline-block은 한줄에 모두를 집어넣고, 줄 넘어가면 두번째 줄에 나옴*/
+  display: block;
+}

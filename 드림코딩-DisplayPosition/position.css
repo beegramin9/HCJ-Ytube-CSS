@@ -1,0 +1,30 @@
+div {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 20px;
+  background: red;
+}
+
+.container {
+  background: yellow;
+  left: 20px;
+  top: 20px;
+  /* static일때는 left, top 같은 명령어가 먹히지 않는다 */
+  /* relative는 원래 자기자신이 있던 자리를 기준으로 한다
+  즉, 원래 자기자신 위에서 아래로 20만큼, 왼쪽에서 오른쪽으로 20만큼 */
+  position: relative;
+}
+
+.box {
+  background: blue;
+  left: 20px;
+  top: 20px;
+  /* absolute는 가장 가까운 부모 class의 시작점을 기준으로 바뀐다
+  여기서는 container의 시작점(html은 왼쪽->오른쪽, 위->아래니까 top-left)
+  에서부터 정해짐 */
+  position: absolute;
+  /* fixed는 상자에서 완전 나와서 웹페이지에서 움직이는것
+  nav바처럼 */
+  /* sticky는 원래 있던 자리에 있는데, 아래로 스크롤링해도 없어지지 않고
+  맨 위에 붙어있는 거임 */
+}

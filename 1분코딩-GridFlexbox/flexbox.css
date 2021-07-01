@@ -1,0 +1,49 @@
+/* item을 감싸는 Container에 넣는 속성   */
+.container {
+  height: 100vh;
+  background: lightgray;
+  display: flex;
+  /* flex-direction: column; */
+  /*  */
+  flex-wrap: wrap;
+  /* justify-content: space-around; */
+  /* 가로축 정렬, flex-start나 end는 한글에 왼쪽부터시작/오른쪽부터시작 */
+  /* align-items: center; */
+  /* 세로축 정렬, flex-start나 end는 한글에 위쪽부터시작/아래쪽부터시작 */
+  align-content: center;
+}
+
+.item {
+  flex-basis: 0;
+  background: rgba(255, 0, 0, 0.5);
+}
+
+.item:nth-child(1) {
+  /* flew-grow을 적용하기 이전에 있었던 여백을
+  1:2:1의 비율로 각각 나눠주겠다. flex-basis가 기본값으로 auto일때만 적용
+  flex-basis: 0이 되면 여백을 나눠주는게 아니라 자기들의 비율이 1:2:1이 됨, 우리가 원하는 것; */
+  /* flex-grow: 1; */
+  /* flex-shrink는 창이 줄어들 때, grow는 창이 커질때인데
+  이 둘을 같이 하려면 그냥
+  flex를 쓰면 된다. 근데 flex만 썼을때는 flex-basis가 자동으로 0으로 된다 */
+  /* flex: 1; */
+  order: 1;
+}
+.item:nth-child(2) {
+  /* flex-grow: 2; */
+  flex: 2;
+  /* flex를 하나만 가지고 있으면, 나머지 child는 고정되고 걔만 화면
+  크기에 따라서 변한다*/
+  order: 3;
+}
+.item:nth-child(3) {
+  /* flex-grow: 1; */
+  /* flex: 1; */
+  /* align-items는 container 전체 단위로, self는 자기자신만 정렬하는 것 */
+  align-self: flex-end;
+  order: 2;
+}
+
+.item:nth-child(odd) {
+  background: rgba(255, 255, 0, 0.5);
+}
