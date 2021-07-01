@@ -3,8 +3,11 @@
   height: 100vh;
   background: lightgray;
   display: flex;
-  /* flex-direction: column; */
-  /*  */
+  /* flex 방향임. column으로 되어있으면 세로로 아래로 내려가고
+  row로 되어있으면 가로로 아래로 내려간다 */
+  flex-direction: column;
+  /* wrap이 있어야 화면이 작아질 때 알아서 반응형으로
+  밑으로 내려가거나 함. wrap이 없으면 안 내려가요  */
   flex-wrap: wrap;
   /* justify-content: space-around; */
   /* 가로축 정렬, flex-start나 end는 한글에 왼쪽부터시작/오른쪽부터시작 */
