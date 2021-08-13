@@ -1,0 +1,89 @@
+@import "reset.css";
+
+div {
+  background-color: hsl(200, 70%, 30%);
+  width: 100px;
+  height: 100px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  margin: 100px auto;
+}
+
+/* transform: function I want to execute */
+.rotate {
+  transform: rotate(0.25turn);
+  /* rotateX, rotateY는 x,y축 회전
+  rotateZ() = rotate() */
+}
+
+.scale {
+  transform: scale(1.5, 0.5);
+  /* args 따로 쓰면 x축, y축 따로도 가능
+  scaleX, scaleY로 따로따로도 가능함
+  args 하나만 쓰면 정사각형 방향으로 */
+}
+
+/* translate: 대상을 상하좌우, 혹은 z-index축으로 움직일 수 있다 */
+.translate {
+  transform: translate(30px);
+  /* translate에 args 하나만 들어가면 translateX와 같다. X축 이동
+  args가 2개면 x축, y축  
+  translateZ도 가능, 근데 쓸일없음*/
+
+  /* 퍼센트를 쓸 때
+  대상 div(Box)의 가로인 100px만큼(=100%) x축 오른쪽으로 움직임 */
+  transform: translate(100%);
+
+  position: relative;
+}
+/* 센터링 예시 */
+.translate::after {
+  content: "after";
+  background-color: red;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+.skew {
+  /* 하나면있으면 x축, 즉 skewX와 같다 */
+  transform: skew(30deg, -40deg);
+}
+
+.combined {
+  /* 여러개를 함꼐 하려면 같이 써주기만 하면 됨 */
+  transform: scale(1.2) translateY(50px);
+}
+
+/* 여러개가 한번에 작동하기 때문에 override할때는 하나만 하면 되는
+게 아니라 전체를 다시 override해야 한다 */
+.big {
+  transform: scale(2) translateX(50px);
+}
+
+.move {
+  transform: scale(1.2) translateX(-50px);
+}
+
+/* css variable을 쓰거나 sass를 쓰면 아래와 같이 가능하다 */
+.combined {
+  /* 여러개를 함꼐 하려면 같이 써주기만 하면 됨 */
+  transform: scale(var(--scale, 1.2)) translateY(var(--translate-x, 10px))
+    skew(var(--skew, 30deg));
+}
+
+.big {
+  --scale: 2;
+}
+
+.move {
+  --translate-x: -50px;
+}
+
+.skew {
+  --skew: 40deg;
+}
